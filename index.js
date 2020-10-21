@@ -19,9 +19,10 @@ let compute = function (data) {
 }
 
 hexo.extend.generator.register('timeline', function(locals){
+    let x = compute(locals.posts);
     return {
         path: 'timeline/index.html',
-        data: compute(locals.posts),
+        data: {posts: x},
         layout: ['timeline', 'index']
     }
 });
